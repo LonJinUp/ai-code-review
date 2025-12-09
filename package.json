@@ -1,0 +1,66 @@
+{
+	"name": "@lonjin/ai-review",
+	"version": "1.0.3",
+	"description": "AI代码审核工具，使用AI自动审核git提交",
+	"main": "index.js",
+	"bin": {
+		"ai-review": "./bin/cli.js"
+	},
+	"files": [
+		"bin",
+		"lib",
+		"templates",
+		"index.js",
+		"README.md"
+	],
+	"engines": {
+		"node": ">=14.0.0"
+	},
+	"scripts": {
+		"test": "echo \"Error: no test specified\" && exit 1",
+		"format": "prettier --write \"**/*.{js,json,md}\" --ignore-path .prettierignore",
+		"format:check": "prettier --check \"**/*.{js,json,md}\" --ignore-path .prettierignore",
+		"lint": "npm run format:check",
+		"prepare": "husky install",
+		"prepublishOnly": "npm run lint"
+	},
+	"lint-staged": {
+		"**/*.{js,json,md}": [
+			"prettier --write --ignore-unknown"
+		]
+	},
+	"keywords": [
+		"code-review",
+		"code-reviewer",
+		"ai",
+		"ai-code-review",
+		"git",
+		"deepseek",
+		"linter",
+		"code-quality",
+		"automated-review",
+		"code-analysis"
+	],
+	"author": "LonJinUp",
+	"license": "MIT",
+	"repository": {
+		"type": "git",
+		"url": "https://github.com/LonJinUp/ai-code-review.git"
+	},
+	"bugs": {
+		"url": "https://github.com/LonJinUp/ai-code-review/issues"
+	},
+	"homepage": "https://github.com/LonJinUp/ai-code-review#readme",
+	"dependencies": {
+		"@lonjin/ai-review": "^1.0.1",
+		"axios": "^1.6.0",
+		"commander": "^11.0.0",
+		"inquirer": "^9.2.0"
+	},
+	"devDependencies": {
+		"husky": "^8.0.0",
+		"lint-staged": "^13.0.0",
+		"prettier": "^3.0.0"
+	},
+	"type": "module"
+}
