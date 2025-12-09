@@ -4,7 +4,7 @@
 
 ## ✨ 功能特性
 
-- 🤖 **AI 驱动**：使用 DeepSeek 大模型进行智能代码审核
+- 🤖 **AI 驱动**：使用大模型进行智能代码审核
 - 📝 **灵活审核**：支持审核未提交的更改（默认）和已提交的代码
 - 📋 **自定义规范**：支持自定义代码审核规范文件
 - 💾 **配置管理**：支持配置文件、环境变量、命令行参数多种配置方式
@@ -13,35 +13,55 @@
 
 ## 📦 安装
 
-### 全局安装
+### 全局安装 🌟推荐
 
 npm install -g @lonjin/ai-review
 
 ### 本地安装
 
-npm install @lonjin/ai-review## 🚀 快速开始
+npm install @lonjin/ai-review
+
+## 🚀 快速开始
 
 ### 1. 首次配置
 
-首次使用时，工具会自动引导你配置 DeepSeek API 参数：
+首次使用时，工具会自动引导你配置 API 参数：
 
-ai-review或者手动触发配置流程：
+```bash
+ai-review
+```
 
+或者手动触发配置流程：
+
+```bash
 ai-review --setup
+```
 
-### 2. 审核代码
+### 2.创建项目规则文件：
+
+在项目根目录创建 `code_review_rules.md` 文件即可使用自定义规范，可以参考 [code_review_rules.md](https://github.com/LonJinUp/ai-code-review/blob/master/templates/code_review_rules.md) 文件。
+
+### 3. 审核代码
 
 **审核未提交的更改（默认）**：
+
+```bash
 ai-review
+```
 
 **审核最新提交**：
+
+```bash
 ai-review --commit
+```
+
 审核完成后，结果会保存在 `./ai_review_result.md` 文件中。
 
 ## 📖 使用方法
 
 ### 基本命令
 
+```bash
 # 审核未提交的更改（默认）
 ai-review
 
@@ -52,7 +72,10 @@ ai-review --commit
 ai-review -r ./my-review-rules.md
 
 # 指定输出文件路径
-ai-review -o ./review-report.md### 命令行选项
+ai-review -o ./review-report.md
+```
+
+### 命令行选项
 
 | 选项 | 简写 | 说明 |
 |------|-------|------|
@@ -75,17 +98,25 @@ ai-review -o ./review-report.md### 命令行选项
 
 #### 环境变量配置
 
+```bash
 export DEEPSEEK_API_KEY="your-api-key"
 export DEEPSEEK_API_URL="https://api.deepseek.com/chat/completions"
-export DEEPSEEK_MODEL="deepseek-chat"#### 配置文件
+export DEEPSEEK_MODEL="deepseek-chat"
+```
+
+#### 配置文件
 
 配置文件位置：`~/.ai-code-review/config.json`
 
+```json
 {
   "apiUrl": "https://api.deepseek.com/chat/completions",
   "model": "deepseek-chat",
   "apiKey": "your-api-key"
-}### 自定义审核规范
+}
+```
+
+### 自定义审核规范
 
 工具会按以下优先级查找审核规范文件：
 
@@ -94,14 +125,18 @@ export DEEPSEEK_MODEL="deepseek-chat"#### 配置文件
 3. **包内默认规范**：`templates/code_review_rules.md`
 
 在项目根目录创建 `code_review_rules.md` 文件即可使用自定义规范：
-own
+
+```markdown
 # 代码审核规范
 
 ## 通用规范
 1. 代码风格一致性
 2. 命名规范
 3. 函数单一职责原则
-...## 📝 审核模式说明
+...
+```
+
+## 📝 审核模式说明
 
 ### 未提交更改模式（默认）
 
@@ -109,11 +144,19 @@ own
 - **已暂存的更改**（Staged）：使用 `git add` 添加到暂存区的文件
 - **未暂存的更改**（Unstaged）：工作目录中已修改但未暂存的文件
 
-ai-review### 已提交代码模式
+```bash
+ai-review
+```
+
+### 已提交代码模式
 
 审核当前分支最新一次提交的代码变更：
 
-ai-review --commit## 📄 输出示例
+```bash
+ai-review --commit
+```
+
+## 📄 输出示例
 
 审核报告会包含：
 - 代码规范违反情况
@@ -123,15 +166,17 @@ ai-review --commit## 📄 输出示例
 
 报告以 Markdown 格式保存，方便阅读和分享。
 
-## 🔧 获取 DeepSeek API Key
+## 🔧 获取API Key
 
-> 这里只用DeepSeek作为演示，也可以用其他家的API
+> 这里只用DeepSeek作为演示，也可以用其他家的API，
 
 1. 访问 [DeepSeek 官网](https://www.deepseek.com/)
 2. 注册账号并登录
 3. 进入 API 管理页面
 4. 创建 API Key
 5. 将 API Key 配置到工具中
+
+🌟🌟🌟推荐使用第三方聚合API，如 **[yunwu.ai](https://yunwu.ai/register?aff=QqnB)**，费率更低，模型齐全。
 
 ## 📋 系统要求
 

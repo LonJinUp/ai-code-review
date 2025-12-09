@@ -1,7 +1,8 @@
 {
 	"name": "@lonjin/ai-review",
-	"version": "1.0.3",
+	"version": "1.0.8",
 	"description": "AI代码审核工具，使用AI自动审核git提交",
+	"readme": "README.md",
 	"main": "index.js",
 	"bin": {
 		"ai-review": "./bin/cli.js"

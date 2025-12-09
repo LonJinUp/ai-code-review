@@ -43,7 +43,7 @@ async function setupApiConfig(initialValues = {}) {
 		{
 			type: 'input',
 			name: 'apiKey',
-			message: '请输入您的 DeepSeek API Key:',
+			message: '请输入您的  API Key:',
 			default: initialValues.apiKey || currentConfig.apiKey,
 			validate: input => (!!input ? true : 'API Key 不能为空'),
 		},
@@ -88,9 +88,9 @@ async function ensureApiConfig(cliOptions) {
 program
 	.version(packageJson.version) // 从 package.json 读取版本
 	.description('AI代码审核工具')
-	.option('-k, --api-key <key>', 'DeepSeek API密钥')
-	.option('-u, --api-url <url>', 'DeepSeek API地址')
-	.option('-m, --model <name>', 'DeepSeek 模型名称')
+	.option('-k, --api-key <key>', 'API密钥')
+	.option('-u, --api-url <url>', 'API地址')
+	.option('-m, --model <name>', '模型名称')
 	.option('-r, --rules <path>', '自定义审核规范文件路径')
 	.option('-o, --output <path>', '输出文件路径，默认为 ./ai_review_result.md')
 	.option('--setup', '重新配置 API Key')
